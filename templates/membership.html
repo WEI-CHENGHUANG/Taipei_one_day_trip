@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <!-- 正式使用 -->
+    <link href="{{url_for('static', filename='CSS/styleForThankPage.css')}}" rel="stylesheet" type="text/css" />
+    <!-- The line below is for font-family:'Noto Sans TC';  Reference:https://www.w3schools.com/howto/tryit.asp?font=Noto%20Sans%20TC-->
+    <link href="https://fonts.googleapis.com/css?family=Noto Sans TC" rel="stylesheet" />
+    <title>Taipei One Day Trip Thank You</title>
+    <script src="{{url_for('static', filename='JS/totalURL.js')}}"></script>
+
+</head>
+
+<body>
+    <div id="signInPopup" class="popup">{% include 'signIn.html' %}</div>
+    <div id="registerPopup" class="popup">{% include 'register.html' %}</div>
+    <nav class="navCheckbox">{% include 'header.html' %}</nav>
+    <main>
+        <div>
+            <h1>Here</h1>
+        </div>
+    </main>
+    <footer>
+        <div id="forNewFooter">
+            <div class="footerBox">{% include 'footer.html' %}</div>
+            <div class="newFooterForAskLoginInfo">
+                <div></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{url_for('static', filename='JS/popupAndMembership.js')}}"></script>
+
+
+</body>
+
+</html>

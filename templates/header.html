@@ -1,0 +1,170 @@
+<div class="contentNav">
+  <div class="logoBox">
+    <a href="http://52.63.14.114:3000/">台北一日遊</a>
+  </div>
+  <div class="registionBox">
+    <div class="push">
+      <button class="pushItems_1" onclick="bookingRecord(urlUser, urlCurrentBooking)">預定行程</button>
+      <button id="pushItems_2" class="pushItems_2" onclick="btnPushItems_2()">
+        <p id="logInAndRegister">登入/註冊</p>
+        <!-- <p id="logOut">登出系統</p> -->
+      </button>
+      <button class="pushItems_3" onclick="membershipPage(urlUser, urlCurrentBooking)">會員專區</button>
+    </div>
+  </div>
+</div>
+<style>
+  .navCheckbox {
+    /* border: 2px solid black;*/
+    z-index: 100;
+    display: flex;
+    height: 54px;
+    background-color: yellowgreen;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid rgb(230, 230, 230);
+  }
+
+  .contentNav {
+    /* background-color:red; */
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    height: 54px;
+  }
+
+  .logoBox {
+    /* background-color:lightblue; */
+    display: flex;
+    align-items: center;
+  }
+
+  .push {
+    /* background-color:black; */
+    display: flex;
+    list-style: none;
+    margin: 0;
+  }
+
+  .logoBox>a {
+    font-size: 30px;
+    font-weight: bold;
+    color: #448899;
+    font-family: sans-serif;
+    text-decoration: none;
+    width: 175px;
+  }
+
+  .pushItems_1 {
+    border: none;
+    color: #666666;
+    font-weight: bold;
+    line-height: 13px;
+    font-size: 16px;
+    text-decoration: none;
+    width: 84px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .pushItems_1:hover {
+    background-color: rgb(17, 170, 170);
+    color: white;
+    height: 45px;
+    border-radius: 50px;
+  }
+
+  .pushItems_2,
+  .pushItemsLogOut {
+    border: none;
+    color: #666666;
+    font-weight: bold;
+    line-height: 13px;
+    font-size: 16px;
+    text-decoration: none;
+    width: 91px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .pushItems_2:hover {
+    background-color: rgb(17, 170, 170);
+    color: white;
+    height: 45px;
+    border-radius: 50px;
+  }
+
+  .pushItems_3 {
+    border: none;
+    color: #666666;
+    font-weight: bold;
+    line-height: 13px;
+    font-size: 16px;
+    text-decoration: none;
+    width: 84px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .pushItems_3:hover {
+    background-color: rgb(17, 170, 170);
+    color: white;
+    height: 45px;
+    border-radius: 50px;
+  }
+
+  .pushItemsLogOut:hover {
+    background-color: rgb(17, 170, 170);
+    color: white;
+    height: 45px;
+    border-radius: 50px;
+  }
+
+  @media (max-width: 1200px) {
+    /* Nav bar */
+
+    .contentNav {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contentNav {
+      width: 100%;
+    }
+
+    .pushItems_1 {
+      font-size: 11px;
+      justify-content: none;
+      width: fit-content;
+    }
+
+    .pushItems_2,
+    .pushItemsLogOut {
+      font-size: 11px;
+      width: fit-content;
+    }
+
+    .pushItems_3 {
+      font-size: 11px;
+      justify-content: none;
+      width: fit-content;
+    }
+  }
+</style>

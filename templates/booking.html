@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="{{url_for('static', filename='CSS/styleForBookingPage.css')}}" rel="stylesheet" type="text/css" />
+  <!-- The line below is for font-family:'Noto Sans TC';  Reference:https://www.w3schools.com/howto/tryit.asp?font=Noto%20Sans%20TC-->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Noto Sans TC" rel="stylesheet" /> -->
+  <title>Taipei One Day Trip Booking</title>
+  <script src="{{url_for('static', filename='JS/totalURL.js')}}"></script>
+</head>
+
+<body>
+  <div id="signInPopup" class="popup">{% include 'signIn.html' %}</div>
+  <div id="registerPopup" class="popup">{% include 'register.html' %}</div>
+  <nav class="navCheckbox">{% include 'header.html' %}</nav>
+  <main>
+    <div id="forInsertingPurpose">
+      <div class="wholeMainBody">
+        <div class="firstSubTitle">
+          <!-- The tage below show in the "popupAndMembership.js" and check the function "checkUserStatus" -->
+          <!-- <p>您好，ＸＸＸXXX，待預定的行程如下:</p> -->
+        </div>
+        <div class="bookingWholeTopInfo">
+          <div class="bookingTopinfo">
+            <div class="bookingAttractionPic">
+              <!-- Here I need to use JS to create a new tag to import the pic. -->
+              <!-- <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg"
+                alt="This is attraction picture." /> -->
+            </div>
+            <div class="bookingAttractionInfo">
+              <div class="bookingDetails">
+                <div class="bookingDetailsTitle">
+                  <label class="bookingDetailSubtitle">台北一日遊 : </label>
+                  <!-- <label class="bookingDetailDescription">這裡要在JS 載入並根據景點資訊</label> -->
+                </div>
+                <div class="bookingDate">
+                  <label class="one">日期：</label>
+                  <!-- <label class="two">這裡要在JS 載入並根據日期資訊</label> -->
+                </div>
+                <div class="bookingTime">
+                  <label class="one">時間：</label>
+                  <!-- <label class="two">這裡要在JS 載入並根據時間資訊</label> -->
+                </div>
+                <div class="bookingExpenses">
+                  <label class="one">費用：</label>
+                  <!-- <label class="two">這裡要在JS 載入並根據費用資訊</label> -->
+                </div>
+                <div class="bookingLocation">
+                  <label class="one">地點：</label>
+                  <!-- <label class="two">這裡要在JS 載入並根據地點資訊</label> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rubbishBin">
+            <button id="rubbishBinButton" onclick="deleteBookedAttraction(urlBookingInBookingJS)"></button>
+          </div>
+        </div>
+        <div class="bookingWholeMidInfo">
+          <div class="innerBookingWholeMidInfo">
+            <div class="bookingWholeMidInfoTitle">
+              <label class="subTitle">您的聯絡資料</label>
+            </div>
+            <div class="bookingWholeMidInfoContactName">
+              <label class="contacName">聯絡姓名 : </label>
+              <input class="box contactNameBox" placeholder="Wilson Huang" type="name" />
+            </div>
+            <div class="bookingWholeMidInfoeamil">
+              <label class="bookingEmail">連絡信箱 : </label>
+              <input class="box bookingEmailBox" placeholder="123@gmail.com"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+            </div>
+            <div class="bookingWholeMidInfoMobile">
+              <label class="mobile">手機號碼 : </label>
+              <input class="box mobileBox" placeholder="0412 345 678" pattern="[0][0-9]{9}" type="tel" />
+            </div>
+            <div class="bookingWholeMidInfoNote">
+              <label class="">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</label>
+            </div>
+          </div>
+        </div>
+        <div class="bookingWholeBottomInfo">
+          <div class="innerBookingWholeBottomInfo">
+            <div class="bookingWholeBottomInfoTitle">
+              <label class="subTitle">信用卡付款資訊</label>
+            </div>
+            <div class="bookingWholeBottomInfoContactName">
+              <label class="contacName">卡片號碼 : </label>
+              <div class="tpfield" id="card-number"></div>
+              <!-- <input class="box contactNameBox" placeholder=" **** **** **** **** " type="tel" required /> -->
+            </div>
+            <div class="bookingWholeBottomInfoeamil">
+              <label class="bookingEmail">過期時間 : </label>
+              <div class="tpfield" id="card-expiration-date"></div>
+              <!-- <input class="box bookingEmailBox" placeholder=" MM / YY " pattern="([0-9]{2}[/]?){2}" required /> -->
+            </div>
+            <div class="bookingWholeBottomInfoMobile">
+              <label class="mobile">驗證密碼 : </label>
+              <div class="tpfield" id="card-ccv"></div>
+              <!-- <input id="" class="box mobileBox" placeholder=" CVV" pattern="[0-9]{3}" type="tel" required /> -->
+            </div>
+
+          </div>
+        </div>
+        <div class="submitButtonForPayment">
+          <div class="totalAmountPayment">
+            <!-- <label>總價：新台幣 2000 元 </label> -->
+          </div>
+          <button type="submit" class="btn btn-default" id="totalAmountPaymentButton"
+            onclick="onSubmit(urlForBookingSumbit)">
+            <p>確認訂購並付款</p>
+          </button>
+        </div>
+      </div>
+  </main>
+  <footer>
+    <div id="forNewFooter">
+      <div class="footerBox">{% include 'footer.html' %}</div>
+      <div class="newFooterForAskLoginInfo">
+        <div></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://js.tappaysdk.com/tpdirect/v5.9.0"></script>
+  <script>TPDirect.setupSDK(124037, 'app_cc4vmfNpAsTyzrVNczTE8p7UmPVdEA9hbaR8E03CubrQBPLzL1SFbwc891hq', 'sandbox')</script>
+  <script src="{{url_for('static', filename='JS/popupAndMembership.js')}}"></script>
+  <script src="{{url_for('static', filename='JS/bookingForFetchApi.js')}}"></script>
+  <!-- <script src="/static/bookingForFetchApi.js"></script> -->
+
+</body>
+
+</html>

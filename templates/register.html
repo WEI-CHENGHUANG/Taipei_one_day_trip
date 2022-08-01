@@ -1,0 +1,32 @@
+<div class="popupContent">
+  <div class="header"></div>
+  <div class="outertitle">
+    <div class="title"><p>註冊會員帳號</p></div>
+    <div class="close" onclick=" closeIconRegister()"><p>&times;</p></div>
+  </div>
+  <div class="outerInputBoxes">
+    <input id="registerNameBox" class="box nameBox" placeholder="輸入姓名" />
+    <input
+      id="registerEmailBox"
+      class="box emailBox"
+      placeholder="輸入電子信箱"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      title="請輸入正確電子信箱"
+    />
+    <input
+      id="registerPasswordBox"
+      class="box passwordBox"
+      placeholder="輸入密碼"
+      type="password"
+    />
+    <button id="registerNewMeber" class="box submitBox">
+      <p>註冊新帳戶</p>
+    </button>
+  </div>
+  <!-- <div class="errorMsg"><p></p></div> -->
+  <div id="bottomPopupBoxForRegister" class="bottomPopupBox">
+    <button id="signIn" onclick="signIn()">
+      <p>已經有帳戶了？點此登入</p>
+    </button>
+  </div>
+</div>

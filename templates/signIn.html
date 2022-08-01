@@ -1,0 +1,157 @@
+<div class="popupContent">
+  <div class="header"></div>
+  <div class="outertitle">
+    <div class="title"><p>會員登入帳號</p></div>
+    <div class="close" onclick="closeIconSignIn()"><p>&times;</p></div>
+  </div>
+  <div class="outerInputBoxes">
+    <input
+      id="sigInEmailBox"
+      class="box emailBox"
+      placeholder="輸入電子信箱"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+    />
+    <input
+      id="sigInPasswordBox"
+      class="box passwordBox"
+      placeholder="輸入密碼"
+      type="password"
+    />
+    <button id="signInToSystem" class="box submitBox">
+      <p>登入帳戶</p>
+    </button>
+  </div>
+  <!-- <div class="errorMsg"><p></p></div> -->
+  <div id="bottomPopupBoxForSingIn" class="bottomPopupBox">
+    <button id="register" onclick="register()">
+      <p>還沒有帳戶？點此註冊</p>
+    </button>
+  </div>
+</div>
+
+<style>
+  /*signIn.html and register.html share this CSS style base. If there are any additional, using ID would solve the issue.*/
+  .popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 101; /* Sit on top */
+    padding-top: 80px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.25); /* Black w/ opacity */
+  }
+  .popupContent {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    box-shadow: 0px 4px 60px #aaaaaa;
+    border-radius: 6px;
+    width: 340px;
+    /*height: 275px;*/
+  }
+
+  .popupContent > .header {
+    width: 340px;
+    height: 10px;
+    background: linear-gradient(270deg, #337788 0%, #66aabb 100%);
+    left: 0;
+    top: 0;
+    border-radius: 6px 6px 0 0;
+  }
+  .popupContent > .outertitle {
+    /*border: 2px solid red;*/
+    display: flex;
+    justify-content: space-between;
+    height: 27px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+  }
+  .title {
+    /*background-color: #aaaaaa;*/
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 104px;
+  }
+  .close {
+    color: #aaaaaa;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close > p {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  /*This is global CSS*/
+  input {
+    padding-left: 8px;
+  }
+
+  .popupContent > .outerInputBoxes {
+    /*border: 2px solid greenyellow;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  .outerInputBoxes > .box {
+    width: 310px;
+    height: 47px;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  .outerInputBoxes > .box:invalid {
+    border: 2px solid red;
+    outline: none;
+  }
+
+  .outerInputBoxes > .submitBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #448899;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+  }
+  .bottomPopupBox {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .bottomPopupBox > button {
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 16px;
+    color: #666666;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+  }
+  .errorMsg,
+  .successMsg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: red;
+    font-weight: 700;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+  }
+</style>

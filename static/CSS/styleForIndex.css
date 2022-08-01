@@ -1,0 +1,277 @@
+HTML {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans TC";
+  height: 100%;
+  position: relative;
+}
+
+/* Login backgroud cover ==========================*/
+
+/* Welcome Zone ==========================*/
+
+.welcomeZone {
+  /* border: 0.5px solid;
+    border-color:black; */
+  width: 100%;
+  height: 320px;
+  background-image: url(/static/pictures/welcome.png),
+    linear-gradient(135deg, #aaddee 0%, #66aabb 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, cover;
+  background-position-x: 80%;
+  background-position-y: bottom;
+  margin-top: 55px;
+  margin-bottom: 55px;
+  display: flex;
+}
+
+.welcomeZoneContent {
+  /* border: 2px solid;
+    border-color: rosybrown;  */
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  margin-top: 85px;
+}
+
+.welcomeZoneItems {
+  /* border: 2px solid;
+    border-color: royalblue; */
+  /* background: #666666; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcomeZoneItems>h2 {
+  /* border: 2px solid;
+    border-color:black; */
+  color: #f8f8f8;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 0;
+  height: 41px;
+  margin-bottom: 15px;
+}
+
+.welcomeZoneItems>p {
+  /* border: 2px solid;
+    border-color: yellow; */
+  font-size: 16px;
+  height: 22px;
+  color: #f8f8f8;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.queryBox {
+  /* border: 2px solid;
+    border-color: yellow; */
+  display: grid;
+  grid-template-columns: 400px 60px;
+  grid-template-rows: 46px 46px;
+}
+
+.queryLocationName {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border: none;
+}
+
+.queryBox>button {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-image: url(/static/pictures/icon_search.png);
+  background-color: #448899;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #757575;
+  padding: 15px;
+  font-size: 16px;
+}
+
+/* Grid Zone ==========================*/
+.container {
+  /* border: 2px solid;
+    border-color: aquamarine; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 270px);
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  padding-bottom: 150px;
+}
+
+.container>a {
+  text-decoration: none;
+}
+
+.square {
+  border: 1px solid;
+  border-color: #e8e8e8;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 202px 40px;
+  width: 270px;
+  height: 242px;
+  background: #ffffff;
+  border-radius: 5px;
+  /* margin:auto; */
+  /* text-align: center; */
+  /* align-items: center; */
+}
+
+.square:hover {
+  box-shadow: 0 0 15px rgba(69, 69, 69, 0.7);
+}
+
+/* =============loading icon============= */
+/* https://codepen.io/jenning/pen/YzNmzaV */
+.loader {
+  --color: #69c4db;
+  --size-mid: 9vmin;
+
+  /* display: block; */
+  position: relative;
+  height: 82%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.loader.--1::before {
+  width: var(--size-mid);
+  height: var(--size-mid);
+  border: 7px solid var(--color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: loader-1 1s linear infinite;
+}
+
+.loader.--1::after {
+  width: calc(var(--size-mid) - 2px);
+  height: calc(var(--size-mid) - 2px);
+  border: 4.5px solid transparent;
+  border-top-color: var(--color);
+  border-radius: 50%;
+  animation: loader-1 0.6s linear reverse infinite;
+}
+
+@keyframes loader-1 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/* ================================= */
+
+
+.topBox>.image {
+  display: none;
+  /* background-image: url(); */
+  background-size: cover;
+  background-position: center center;
+  height: 82%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+
+.topBox>p {
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 10px;
+  line-height: 13px;
+  color: #757575;
+}
+
+.bottomBox {
+  /* border: 2px solid;
+    border-color: black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 12px;
+  color: #757575;
+  /* gap:90px; */
+}
+
+.bottomBox>.p_1 {
+  /* border: 2px solid;
+    border-color: red; */
+  width: 125px;
+  height: 20px;
+}
+
+.bottomBox>.p_2 {
+  /* border: 2px solid;
+    border-color: red; */
+  width: 125px;
+  height: 20px;
+}
+
+/* These className is created by  */
+
+.wrongMessage {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+
+  /* Welcome Zone ==========================*/
+  .welcomeZone {
+    /* border: 0.5px solid;
+        border-color:#F8F8F8; */
+    background-size: 80%, auto;
+    background-position-x: 120%;
+  }
+
+  .welcomeZoneItems {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* Welcome Zone ==========================*/
+  .welcomeZone {
+    /* border: 0.5px solid;
+        border-color:#F8F8F8; */
+    height: 280px;
+    background-size: 90%, cover;
+    background-position: bottom right -25vw, top;
+  }
+
+  .queryBox {
+    /* border: 2px solid;
+        border-color: yellow; */
+    grid-template-columns: 230px 60px;
+  }
+}

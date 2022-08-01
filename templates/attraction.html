@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taipei One Day Trip Attractions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="/static/styleForAttractions.css" /> -->
+  <link href="{{url_for('static', filename='CSS/styleForAttractions.css')}}" rel="stylesheet" type="text/css" />
+  <!-- The line below is for font-family:'Noto Sans TC';  Reference:https://www.w3schools.com/howto/tryit.asp?font=Noto%20Sans%20TC-->
+  <link href="https://fonts.googleapis.com/css?family=Noto Sans TC" rel="stylesheet" />
+  <script src="{{url_for('static', filename='JS/totalURL.js')}}"></script>
+</head>
+
+<body>
+  <div id="signInPopup" class="popup">{% include 'signIn.html' %}</div>
+  <div id="registerPopup" class="popup">{% include 'register.html' %}</div>
+  <nav class="navCheckbox">{% include 'header.html' %}</nav>
+  <main>
+    <div class="wholeTopInfoBackground">
+      <div class="topinfo">
+        <div class="attractionPic">
+          <!-- <div class="slideImage">
+              <img
+                src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg"
+                alt=""
+              />
+            </div> -->
+          <div class="button" id="arrorButton">
+            <a onclick="nextImg(-1)" class="prev fa fa-angle-left"></a>
+            <a onclick="nextImg(1)" class="next fa fa-angle-right"></a>
+          </div>
+          <div class="OuterDotsContainer">
+            <div class="dotsContainer">
+              <!-- <span class="dot" onclick="currentSlide(1)"></span> -->
+            </div>
+          </div>
+        </div>
+        <div class="attractionInfo">
+          <h2 id="attractionsName"></h2>
+          <p id="catAndMrt"></p>
+          <div class="bookingDetails">
+            <div class="bookingDetailsTitle"><label>訂購導覽行程</label></div>
+            <div class="bookingDetailsDescription">
+              以此景點為中心的一日行程，帶您探索城市角落故事
+            </div>
+            <div class="dateOptions">
+              <label>選擇日期：</label>
+              <input type="date" id="travelDate" name="travelDate" min="2022-04-18" />
+              <!-- <label class="dateOptionsForErrorMsg">日期不得為空</label> -->
+            </div>
+            <div class="timeOptions">
+              <label>選擇時間：</label>
+              <label class="timeOptionsContainer">上半天
+                <input type="radio" id="morning" name="daySelect" value="新台幣 2000" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="timeOptionsContainer">下半天
+                <input type="radio" id="afternoon" name="daySelect" value="新台幣 2500" />
+                <span class="checkmark"></span>
+              </label>
+              <!-- <label class="timeOptionsContainerForErrorMsg">請選擇時間</label> -->
+            </div>
+            <div class="expenses">
+              <label>導覽費用：</label>
+              <label id="result"></label>
+            </div>
+            <!-- Button's hover function needs to be specific. -->
+            <div class="bookingConfirmed">
+              <button onclick="submitAttractionInfoBox(urlBooking)">開始預訂行程</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wholeBottomInfoBackground">
+      <div class="bottomInfo">
+        <div class="firstP">
+          <p id="attractionDescriptionFromAPI"></p>
+        </div>
+        <div class="attractionAddress">
+          <h2>景點地址：</h2>
+          <p id="attractionAddressFromAPI"></p>
+        </div>
+        <div class="attractionTransportation">
+          <h2>交通方式：</h2>
+          <p id="attractionTransportationFromAPI"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footerBox">{% include 'footer.html' %}</div>
+  </footer>
+  <script src="{{url_for('static', filename='JS/popupAndMembership.js')}}"></script>
+  <script src="{{url_for('static', filename='JS/attractions.js')}}"></script>
+</body>
+
+</html>

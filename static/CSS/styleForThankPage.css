@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+}
+
+.thankyouContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.successIcon {
+  display: none;
+  background-image: url(/static/pictures/check.png);
+  background-size: cover;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 150px;
+  height: 150px;
+  /* background-color: royalblue; */
+}
+
+.failIncon {
+  display: none;
+  background-image: url(/static/pictures/error.png);
+  background-size: cover;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 150px;
+  height: 150px;
+}
+
+.thankTitle {
+  font-size: 25px;
+  color: #448899;
+  font-weight: bold;
+}
+
+.first {
+  font-size: 18px;
+  /* font-weight: bolder; */
+}
+
+.second {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.reminderInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* font-size: 2px; */
+}
+
+.reminderInfo>p {
+  font-size: 20px;
+}
+
+.reminderInfo>button {
+  width: 130px;
+  height: 30px;
+  background-color: #448899;
+  color: white;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.reminderInfo>button:hover {
+  border: 2px solid grey;
+  background-color: #64afc2;
+}
+
+.extraInfo {
+  margin-bottom: 150px;
+}
