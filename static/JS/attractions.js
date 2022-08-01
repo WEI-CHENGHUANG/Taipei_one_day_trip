@@ -60,10 +60,8 @@ attractionUrl = window.location.href;
 // testing purpose
 attractionId = attractionUrl.substr(33);
 
-let attractionsuURL = `http://127.0.0.1:3000/api/attraction/${attractionId}`;
-// attractionsuURL = `http://52.63.14.114:3000/api/attraction/${attractionId}`;
+let attractionsuURL = `http://13.210.218.205:4000/api/attraction/${attractionId}`;
 function queryAttractionsById(url) {
-
   fetch(url)
     .then((response) => {
       return response.json();
@@ -101,7 +99,7 @@ function createTagsForAttractionImg(image) {
   let arrorButton = document.getElementById("arrorButton");
 
   let loadingImg = document.createElement("div");
-  loadingImg.className = "loader --1"
+  loadingImg.className = "loader --1";
 
   let slideImage = document.createElement("div");
   slideImage.className = "slideImage";
@@ -109,9 +107,9 @@ function createTagsForAttractionImg(image) {
   img.src = image;
   // This onload function is to display the loading spinner icon when the picture is still loading.
   img.onload = function () {
-    loadingImg.style.display = "none"
-    img.style.display = "block"
-  }
+    loadingImg.style.display = "none";
+    img.style.display = "block";
+  };
 
   slideImage.appendChild(loadingImg);
   slideImage.appendChild(img);
@@ -141,16 +139,15 @@ function createTagsForAttractionInfo(n) {
 // The code below is to disable previous dates in date picker for users.
 let date = new Date();
 let tDay = date.getDate();
-let month = date.getMonth() + 1;// The reason plus 1 is the getMoth only get the previosue month.
+let month = date.getMonth() + 1; // The reason plus 1 is the getMoth only get the previosue month.
 let year = date.getFullYear();
 // The two IF statements are for formating reason. If day or month is less than two digits, I need to give 0 to fill it as two digits. e.g. 4 => 04.
 if (tDay < 10) {
-  tDay = '0' + tDay;
+  tDay = "0" + tDay;
 }
 if (month < 10) {
-  month = '0' + month;
+  month = "0" + month;
 }
-let minDate = year + '-' + month + '-' + tDay;
-document.getElementById("travelDate").setAttribute("min", minDate)
+let minDate = year + "-" + month + "-" + tDay;
+document.getElementById("travelDate").setAttribute("min", minDate);
 // ================================================================
-

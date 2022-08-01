@@ -13,13 +13,10 @@ let clearPasswordBoxInputForSignIN =
 let clearPasswordBoxInputForRegister =
   document.getElementsByClassName("passwordBox")[1];
 
-let urlUser = "http://127.0.0.1:3000/api/user";
-let urlBooking = "http://127.0.0.1:3000/api/booking";
-// let urlUser = "http://52.63.14.114:3000/api/user";
-// let urlBooking = "http://52.63.14.114:3000/api/booking";
+let urlUser = "http://13.210.218.205:4000/api/user";
+let urlBooking = "http://13.210.218.205:4000/api/booking";
 // This is for checking whether current page's URL is the same as booking page URL and then I can get the contact name.
-let urlCurrentBooking = "http://127.0.0.1:3000/booking"
-// let urlCurrentBooking = "http://52.63.14.114:3000/booking"
+let urlCurrentBooking = "http://13.210.218.205:4000/booking";
 
 // in index.html This function is the all the log-in function source, which means if I want to use log-in box, I can just use this.
 function btnPushItems_2() {
@@ -261,7 +258,6 @@ function registerToSystem(urlUser) {
 }
 
 function checkUserStatus(urlUser, urlCurrentBooking) {
-
   fetch(urlUser)
     .then((response) => {
       return response.json();
@@ -270,20 +266,20 @@ function checkUserStatus(urlUser, urlCurrentBooking) {
       // The code below means the user already logged in system.
       if (String(data) !== "null") {
         createNavLogInTag();
-        // In order to get the user name by this fetching API,so here, 
+        // In order to get the user name by this fetching API,so here,
         // I need to check which page are sending this API then response the user name to page.
         // The code below is all showing in the booking page.
         currentPageUrl = window.location.href;
         if (currentPageUrl === urlCurrentBooking) {
-          userName = data["data"]["name"]
-          firstSubTitleBookingPage = document.getElementsByClassName("firstSubTitle")[0]
+          userName = data["data"]["name"];
+          firstSubTitleBookingPage =
+            document.getElementsByClassName("firstSubTitle")[0];
 
           let firstSubTitleBookingPageTag = document.createElement("p");
-          firstSubTitleBookingPage.appendChild(firstSubTitleBookingPageTag)
-          firstSubTitleBookingPageTag.innerHTML = `您好，${userName}，待預定的行程如下:`
+          firstSubTitleBookingPage.appendChild(firstSubTitleBookingPageTag);
+          firstSubTitleBookingPageTag.innerHTML = `您好，${userName}，待預定的行程如下:`;
         }
       }
-
     })
     .catch((error) => {
       console.log(
@@ -340,61 +336,74 @@ function deleteUserStatus(urlUser) {
 
 checkUserStatus(urlUser, urlCurrentBooking);
 
-
 function submitAttractionInfoBox(urlBooking) {
   // Date
-  let date = document.getElementById('travelDate').value;
-  let time = ''
-  if (date === '') {
-    dateOptionsForErrorMsgTag = document.getElementsByClassName("dateOptionsForErrorMsg")[0]
+  let date = document.getElementById("travelDate").value;
+  let time = "";
+  if (date === "") {
+    dateOptionsForErrorMsgTag = document.getElementsByClassName(
+      "dateOptionsForErrorMsg"
+    )[0];
     if (dateOptionsForErrorMsgTag) {
       dateOptionsForErrorMsgTag.remove();
     }
     let dateOptions = document.getElementsByClassName("dateOptions")[0];
     let dateOptionsForErrorMsg = document.createElement("label");
     dateOptionsForErrorMsg.className = "dateOptionsForErrorMsg";
-    dateOptions.appendChild(dateOptionsForErrorMsg).innerHTML = "日期不得為空"
+    dateOptions.appendChild(dateOptionsForErrorMsg).innerHTML = "日期不得為空";
   } else {
-    dateOptionsForErrorMsgTag = document.getElementsByClassName("dateOptionsForErrorMsg")[0]
+    dateOptionsForErrorMsgTag = document.getElementsByClassName(
+      "dateOptionsForErrorMsg"
+    )[0];
     if (dateOptionsForErrorMsgTag) {
       dateOptionsForErrorMsgTag.remove();
     }
   }
   // Time
-  if (document.getElementById('morning').checked) {
-    time = document.getElementById('morning').value;
-    timeOptionsForErrorMsgTag = document.getElementsByClassName("timeOptionsContainerForErrorMsg")[0]
+  if (document.getElementById("morning").checked) {
+    time = document.getElementById("morning").value;
+    timeOptionsForErrorMsgTag = document.getElementsByClassName(
+      "timeOptionsContainerForErrorMsg"
+    )[0];
     if (timeOptionsForErrorMsgTag) {
       timeOptionsForErrorMsgTag.remove();
     }
-  } else if (document.getElementById('afternoon').checked) {
-    time = document.getElementById('afternoon').value;
-    timeOptionsForErrorMsgTag = document.getElementsByClassName("timeOptionsContainerForErrorMsg")[0]
+  } else if (document.getElementById("afternoon").checked) {
+    time = document.getElementById("afternoon").value;
+    timeOptionsForErrorMsgTag = document.getElementsByClassName(
+      "timeOptionsContainerForErrorMsg"
+    )[0];
     if (timeOptionsForErrorMsgTag) {
       timeOptionsForErrorMsgTag.remove();
     }
   } else {
-    timeOptionsForErrorMsgTag = document.getElementsByClassName("timeOptionsContainerForErrorMsg")[0]
+    timeOptionsForErrorMsgTag = document.getElementsByClassName(
+      "timeOptionsContainerForErrorMsg"
+    )[0];
     if (timeOptionsForErrorMsgTag) {
       timeOptionsForErrorMsgTag.remove();
     }
     let timeOptions = document.getElementsByClassName("timeOptions")[0];
     let timeOptionsContainerForErrorMsg = document.createElement("label");
-    timeOptionsContainerForErrorMsg.className = "timeOptionsContainerForErrorMsg";
-    timeOptions.appendChild(timeOptionsContainerForErrorMsg).innerHTML = "請選擇期間"
+    timeOptionsContainerForErrorMsg.className =
+      "timeOptionsContainerForErrorMsg";
+    timeOptions.appendChild(timeOptionsContainerForErrorMsg).innerHTML =
+      "請選擇期間";
   }
-  if (date !== '' && time !== '') {
+  if (date !== "" && time !== "") {
     // 這邊應該要用booking POST 的API因為這邊就預定行程了
     attractionUrl = window.location.href;
     // attractionId = attractionUrl.substr(36);
     // testing purpose
     attractionId = attractionUrl.substr(33);
 
-    let price = time.substring(4)
-    let timeOfDay
+    let price = time.substring(4);
+    let timeOfDay;
     if (price === "2000") {
-      timeOfDay = "morning"
-    } else { timeOfDay = "afternoon" }
+      timeOfDay = "morning";
+    } else {
+      timeOfDay = "afternoon";
+    }
 
     // This fetch is only for update or insert new data to database.
     fetch(urlBooking, {
@@ -413,13 +422,15 @@ function submitAttractionInfoBox(urlBooking) {
       .then((response) => {
         if (response.status === 403) {
           return response.status;
-        } else { return response.json(); }
+        } else {
+          return response.json();
+        }
       })
       .then((data) => {
         if (data === 403) {
-          btnPushItems_2()
+          btnPushItems_2();
         } else {
-          location.replace(urlCurrentBooking)
+          location.replace(urlCurrentBooking);
           // console.log("here")
         }
       })
@@ -437,14 +448,15 @@ function bookingRecord(urlUser, urlCurrentBooking) {
   fetch(urlUser)
     .then((response) => {
       return response.json();
-
-    }).then((data) => {
+    })
+    .then((data) => {
       if (String(data) === "null") {
-        btnPushItems_2()
+        btnPushItems_2();
       } else {
-        location.replace(urlCurrentBooking)
+        location.replace(urlCurrentBooking);
       }
-    }).catch((error) => {
+    })
+    .catch((error) => {
       console.log(
         error,
         "Something went wrong when fetching data via API, Check JS function : bookingRecord()"
@@ -456,14 +468,15 @@ function membershipPage(urlUser, urlCurrentBooking) {
   fetch(urlUser)
     .then((response) => {
       return response.json();
-
-    }).then((data) => {
+    })
+    .then((data) => {
       if (String(data) === "null") {
-        btnPushItems_2()
+        btnPushItems_2();
       } else {
-        location.replace(urlCurrentBooking)
+        location.replace(urlCurrentBooking);
       }
-    }).catch((error) => {
+    })
+    .catch((error) => {
       console.log(
         error,
         "Something went wrong when fetching data via API, Check JS function : bookingRecord()"
