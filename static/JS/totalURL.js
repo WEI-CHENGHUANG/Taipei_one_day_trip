@@ -3,12 +3,9 @@
 // attractions.js => start from line 57
 
 // These URLs from bookingForFetchApi.js file. Line 1.
-let urlThankYou = "http://127.0.0.1:3000/thankyou?number=";
-let urlForBookingSumbit = "http://127.0.0.1:3000/api/orders";
-let urlBookingInBookingJS = "http://127.0.0.1:3000/api/booking";
-// let urlThankYou = "http://52.63.14.114:3000/thankyou?number="
-// let urlForBookingSumbit = "http://52.63.14.114:3000/api/orders"
-// let urlBookingInBookingJS = "http://52.63.14.114:3000/api/booking";
+let urlThankYou = "/thankyou?number=";
+let urlForBookingSumbit = "/api/orders";
+let urlBookingInBookingJS = "/api/booking";
 
 // TFrom popupAndMembership.js file line 16
 // popupAndMembership.js's URLs need to be in their own page, otherwise, the url will display the error.

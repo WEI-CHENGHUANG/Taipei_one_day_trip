@@ -13,10 +13,10 @@ let clearPasswordBoxInputForSignIN =
 let clearPasswordBoxInputForRegister =
   document.getElementsByClassName("passwordBox")[1];
 
-let urlUser = "http://13.210.218.205:4000/api/user";
-let urlBooking = "http://13.210.218.205:4000/api/booking";
+let urlUser = "/api/user";
+let urlBooking = "/api/booking";
 // This is for checking whether current page's URL is the same as booking page URL and then I can get the contact name.
-let urlCurrentBooking = "http://13.210.218.205:4000/booking";
+let urlCurrentBooking = "/booking";
 
 // in index.html This function is the all the log-in function source, which means if I want to use log-in box, I can just use this.
 function btnPushItems_2() {

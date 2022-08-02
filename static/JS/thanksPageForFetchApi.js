@@ -3,7 +3,7 @@ orderUrl = window.location.href;
 // orderNumber = orderUrl.substr(41);
 // testing
 orderNumber = orderUrl.substr(38);
-let newURLForThankyou = `http://13.210.218.205:4000/api/order/${orderNumber}`;
+let newURLForThankyou = `/api/order/${orderNumber}`;
 function getorderInfo(newURLForThankyou) {
   fetch(newURLForThankyou)
     .then((response) => {
@@ -68,10 +68,10 @@ function getorderInfo(newURLForThankyou) {
 }
 
 function returnToHP() {
-  location.replace("http://13.210.218.205:4000/");
+  location.replace("/");
 }
 function returnTobookingPage() {
-  location.replace("http://13.210.218.205:4000/booking");
+  location.replace("/booking");
 }
 
 getorderInfo(newURLForThankyou);

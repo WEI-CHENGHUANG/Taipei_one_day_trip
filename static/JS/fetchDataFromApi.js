@@ -63,9 +63,9 @@ function queryAttractions(pageNumber) {
   let url = "";
   keywordInput = document.getElementById("queryLocationName").value;
   if (keywordInput === "") {
-    url = `http://13.210.218.205:4000/api/attractions?page=${pageNumber}`;
+    url = `/api/attractions?page=${pageNumber}`;
   } else {
-    url = `http://13.210.218.205:4000/api/attractions?page=${pageNumber}&keyword=${keywordInput}`;
+    url = `/api/attractions?page=${pageNumber}&keyword=${keywordInput}`;
   }
 
   fetch(url)
@@ -87,7 +87,7 @@ function queryAttractions(pageNumber) {
           let id = response["data"][i]["id"];
           // This url is not the same as the /api/attraction/id,
           // This url directly link to the attraction.html page, but using the data capatured from API.
-          let idUrl = `http://13.210.218.205:4000/attraction/${id}`;
+          let idUrl = `/attraction/${id}`;
           createGrid(name, mrt, category, image, idUrl);
         }
       }

@@ -37,7 +37,7 @@ def responseQueryResult(nextPage, data):
 class attractions(Resource):
     def get(self):
         # indirect refterence start from 3:28: https://www.youtube.com/watch?v=yTbKm_6PsxY
-        # This is to get the query parameters from URL. For example, url=> http://52.63.14.114:3000/api/attractions?page=10, query parameter=> page=10
+        # This is to get the query parameters from URL. For example, url=> http://13.210.218.205:4000/api/attractions?page=10, query parameter=> page=10
         page = request.args.get('page')
         # This If is to check the only keyword input situation
         if page is None:
