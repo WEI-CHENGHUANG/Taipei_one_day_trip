@@ -53,7 +53,6 @@ class userIdentification(Resource):
             return 'Content-Type not supported!(This info is for engineer)'
 
     def patch(self):
-
         content_type = request.headers.get("Content-Type")
         if (content_type == 'application/json'):
             jsonRequest = request.get_json()
@@ -68,7 +67,6 @@ class userIdentification(Resource):
                         finalQuery = "SELECT id, name, email FROM member WHERE email=%s and password=%s;"
                         finalQueryResult = queryMultileClausesNew(
                             finalQuery, (email, password))
-
                         if finalQueryResult:
                             expires = datetime.timedelta(days=7)
                             accessToken = create_access_token(identity={"data": {
@@ -76,7 +74,6 @@ class userIdentification(Resource):
                             # # This is for session method, write it in the notion.
                             # session["email"] = queryResult[0][0]
                             # session["password"] = queryResult[0][1]
-
                             response = make_response(
                                 jsonify({"ok": True}), 200)
                             set_access_cookies(response, accessToken)
